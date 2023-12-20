@@ -1,0 +1,116 @@
+Debug: 6 5 log.c:237 handle_log_output_command(): set log_output to "ok.log"
+Debug: 7 5 options.c:233 add_default_dirs(): bindir=/usr/local/bin
+Debug: 8 5 options.c:234 add_default_dirs(): pkgdatadir=/usr/local/share/openocd
+Debug: 9 5 options.c:235 add_default_dirs(): exepath=/usr/local/bin
+Debug: 10 5 options.c:236 add_default_dirs(): bin2data=../share/openocd
+Debug: 11 5 configuration.c:33 add_script_search_dir(): adding /home/abhi/.config/openocd
+Debug: 12 5 configuration.c:33 add_script_search_dir(): adding /home/abhi/.openocd
+Debug: 13 5 configuration.c:33 add_script_search_dir(): adding /usr/local/bin/../share/openocd/site
+Debug: 14 5 configuration.c:33 add_script_search_dir(): adding /usr/local/bin/../share/openocd/scripts
+Debug: 15 5 command.c:152 script_debug(): command - ocd_find RocketSim.cfg
+Debug: 16 5 configuration.c:88 find_file(): found RocketSim.cfg
+Debug: 17 5 command.c:152 script_debug(): command - adapter driver remote_bitbang
+Info : 18 5 transport.c:107 allow_transports(): only one transport option; autoselecting 'jtag'
+Debug: 19 5 command.c:152 script_debug(): command - remote_bitbang host localhost
+Debug: 20 5 command.c:152 script_debug(): command - remote_bitbang port 36054
+Debug: 21 5 command.c:152 script_debug(): command - jtag newtap riscv cpu -irlen 5
+Debug: 22 5 tcl.c:418 handle_jtag_newtap_args(): Creating New Tap, Chip: riscv, Tap: cpu, Dotted: riscv.cpu, 2 params
+Debug: 23 5 core.c:1474 jtag_tap_init(): Created Tap: riscv.cpu @ abs position 0, irlen 5, capture: 0x1 mask: 0x3
+Debug: 24 5 command.c:152 script_debug(): command - target create riscv.cpu riscv -chain-position riscv.cpu -rtos hwthread
+Debug: 25 5 target.c:2171 target_free_all_working_areas_restore(): freeing all working areas
+Info : 26 5 hwthread.c:411 hwthread_create(): Hardware thread awareness created
+Debug: 27 6 riscv.c:437 riscv_create_target(): [riscv.cpu] riscv_create_target()
+Debug: 28 6 command.c:152 script_debug(): command - riscv set_reset_timeout_sec 120
+Debug: 29 6 command.c:152 script_debug(): command - riscv set_command_timeout_sec 120
+Debug: 30 6 command.c:152 script_debug(): command - riscv set_mem_access sysbus progbuf abstract
+Debug: 31 6 command.c:152 script_debug(): command - init
+Debug: 32 6 command.c:152 script_debug(): command - target init
+Debug: 33 6 command.c:152 script_debug(): command - target names
+Debug: 34 6 command.c:152 script_debug(): command - riscv.cpu cget -event gdb-flash-erase-start
+Debug: 35 6 command.c:152 script_debug(): command - riscv.cpu configure -event gdb-flash-erase-start reset init
+Debug: 36 6 command.c:152 script_debug(): command - riscv.cpu cget -event gdb-flash-write-end
+Debug: 37 6 command.c:152 script_debug(): command - riscv.cpu configure -event gdb-flash-write-end reset halt
+Debug: 38 6 command.c:152 script_debug(): command - riscv.cpu cget -event gdb-attach
+Debug: 39 6 command.c:152 script_debug(): command - riscv.cpu configure -event gdb-attach halt 1000
+Debug: 40 6 target.c:1629 handle_target_init_command(): Initializing targets...
+Debug: 41 6 riscv.c:450 riscv_init_target(): [riscv.cpu] riscv_init_target()
+Debug: 42 6 semihosting_common.c:107 semihosting_common_init():  
+Info : 43 6 remote_bitbang.c:315 remote_bitbang_init(): Initializing remote_bitbang driver
+Info : 44 6 remote_bitbang.c:237 remote_bitbang_init_tcp(): Connecting to localhost:36054
+Info : 45 6 remote_bitbang.c:326 remote_bitbang_init(): remote_bitbang driver initialized
+Info : 46 6 adapter.c:154 adapter_init(): Note: The adapter "remote_bitbang" doesn't support configurable speed
+Debug: 47 6 openocd.c:133 handle_init_command(): Debug Adapter init complete
+Debug: 48 6 command.c:152 script_debug(): command - transport init
+Debug: 49 6 transport.c:219 handle_transport_init(): handle_transport_init
+Debug: 50 6 core.c:830 jtag_add_reset(): SRST line released
+Debug: 51 6 core.c:855 jtag_add_reset(): TRST line released
+Debug: 52 6 core.c:328 jtag_call_event_callbacks(): jtag event: TAP reset
+Debug: 53 6 command.c:152 script_debug(): command - jtag arp_init
+Debug: 54 6 core.c:1509 jtag_init_inner(): Init JTAG chain
+Debug: 55 6 core.c:328 jtag_call_event_callbacks(): jtag event: TAP reset
+Debug: 56 6 bitbang.c:324 bitbang_execute_queue(): statemove end in RESET
+Debug: 57 6 bitbang.c:79 bitbang_state_move(): tap_set_state(RESET)
+Debug: 58 6 core.c:978 default_interface_jtag_execute_queue(): JTAG TLR RESET to RESET
+Debug: 59 6 core.c:1234 jtag_examine_chain(): DR scan interrogation for IDCODE/BYPASS
+Debug: 60 6 core.c:328 jtag_call_event_callbacks(): jtag event: TAP reset
+Debug: 61 6 commands.c:199 jtag_build_buffer(): DRSCAN num_fields: 1
+Debug: 62 6 commands.c:211 jtag_build_buffer(): fields[0].out_value[672]: 0xffffffffffffffff
+Debug: 63 6 bitbang.c:340 bitbang_execute_queue(): DR scan 672 bits; end in DRPAUSE
+Debug: 64 6 bitbang.c:79 bitbang_state_move(): tap_set_state(DRSHIFT)
+Error: 65 8 log.c:503 log_socket_error(): Error on socket 'remote_bitbang_fill_buf': errno==104, message: Connection reset by peer.
+Debug: 66 8 core.c:960 default_interface_jtag_execute_queue(): JTAG DR SCAN to DRPAUSE
+Debug: 67 8 core.c:967 default_interface_jtag_execute_queue():   672b out: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Debug: 68 8 core.c:972 default_interface_jtag_execute_queue():   672b  in: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Debug: 69 8 core.c:978 default_interface_jtag_execute_queue(): JTAG TLR RESET to RESET
+Error: 70 8 core.c:1554 jtag_init_inner(): Trying to use configured scan chain anyway...
+Debug: 71 8 core.c:1364 jtag_validate_ircapture(): IR capture validation scan
+Debug: 72 8 server.c:607 sig_handler(): Terminating on Signal 13
+Error: 73 8 log.c:503 log_socket_error(): Error on socket 'remote_bitbang_putc': errno==32, message: Broken pipe.
+Debug: 74 8 core.c:960 default_interface_jtag_execute_queue(): JTAG IR SCAN to RUN/IDLE
+Debug: 75 8 core.c:967 default_interface_jtag_execute_queue():   7b out: 7f
+Debug: 76 8 core.c:972 default_interface_jtag_execute_queue():   7b  in: 7f
+Debug: 77 8 core.c:328 jtag_call_event_callbacks(): jtag event: TAP reset
+Debug: 78 8 server.c:609 sig_handler(): Ignored extra Signal 13
+Error: 79 8 log.c:503 log_socket_error(): Error on socket 'remote_bitbang_putc': errno==32, message: Broken pipe.
+Debug: 80 8 core.c:978 default_interface_jtag_execute_queue(): JTAG TLR RESET to RESET
+Warn : 81 8 core.c:1577 jtag_init_inner(): Bypassing JTAG setup events due to errors
+Debug: 82 8 command.c:152 script_debug(): command - dap init
+Debug: 83 8 arm_dap.c:95 dap_init_all(): Initializing all DAPs ...
+Debug: 84 8 openocd.c:150 handle_init_command(): Examining targets...
+Debug: 85 8 target.c:1815 target_call_event_callbacks(): target event 19 (examine-start) for core riscv.cpu
+Debug: 86 8 riscv.c:1717 riscv_examine(): [riscv.cpu] Starting examination
+Debug: 87 8 server.c:609 sig_handler(): Ignored extra Signal 13
+Error: 88 8 log.c:503 log_socket_error(): Error on socket 'remote_bitbang_putc': errno==32, message: Broken pipe.
+Debug: 89 8 core.c:960 default_interface_jtag_execute_queue(): JTAG IR SCAN to RUN/IDLE
+Debug: 90 8 core.c:967 default_interface_jtag_execute_queue():   5b out: 10
+Debug: 91 8 core.c:960 default_interface_jtag_execute_queue(): JTAG DR SCAN to RUN/IDLE
+Debug: 92 8 core.c:967 default_interface_jtag_execute_queue():   32b out: 00000000
+Debug: 93 8 core.c:972 default_interface_jtag_execute_queue():   32b  in: 928738e0
+Debug: 94 8 core.c:960 default_interface_jtag_execute_queue(): JTAG IR SCAN to RUN/IDLE
+Debug: 95 8 core.c:967 default_interface_jtag_execute_queue():   5b out: 11
+Error: 96 8 riscv.c:401 dtmcontrol_scan(): [riscv.cpu] dtmcontrol scan failed, error code = -4
+Error: 97 8 riscv.c:1728 riscv_examine(): [riscv.cpu] Could not read dtmcontrol. Check JTAG connectivity/board power.
+Debug: 98 8 target.c:1815 target_call_event_callbacks(): target event 20 (examine-fail) for core riscv.cpu
+Warn : 99 8 target.c:774 target_examine(): target riscv.cpu examination failed
+Debug: 100 8 openocd.c:152 handle_init_command(): target examination failed
+Debug: 101 8 command.c:152 script_debug(): command - flash init
+Debug: 102 8 tcl.c:1364 handle_flash_init_command(): Initializing flash devices...
+Debug: 103 8 command.c:152 script_debug(): command - nand init
+Debug: 104 8 tcl.c:484 handle_nand_init_command(): Initializing NAND devices...
+Debug: 105 8 command.c:152 script_debug(): command - pld init
+Debug: 106 8 pld.c:337 handle_pld_init_command(): Initializing PLDs...
+Debug: 107 8 command.c:152 script_debug(): command - tpiu init
+Info : 108 8 gdb_server.c:3881 gdb_target_start(): starting gdb server for riscv.cpu on 3333
+Info : 109 8 server.c:297 add_service(): Listening on port 3333 for gdb connections
+Debug: 110 8 command.c:152 script_debug(): command - halt
+Debug: 111 8 target.c:3268 handle_halt_command(): -
+Error: 112 8 target.c:553 target_halt(): Target not examined yet
+Debug: 113 8 command.c:541 run_command(): Command 'halt' failed with error code -4
+User : 114 8 command.c:613 command_run_line(): 
+Debug: 115 8 riscv.c:535 riscv_deinit_target(): [riscv.cpu] riscv_deinit_target()
+Error: 116 8 riscv.c:429 get_target_type(): [riscv.cpu] Unsupported DTM version: -1
+Error: 117 8 riscv.c:540 riscv_deinit_target(): [riscv.cpu] Could not identify target type.
+Debug: 118 8 target.c:2171 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 119 9 server.c:609 sig_handler(): Ignored extra Signal 13
+Error: 120 9 log.c:503 log_socket_error(): Error on socket 'remote_bitbang_putc': errno==32, message: Broken pipe.
+Error: 121 9 adapter.c:190 adapter_quit(): failed: -4

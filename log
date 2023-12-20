@@ -1,0 +1,18 @@
+Debug: 6 2 log.c:237 handle_log_output_command(): set log_output to "log"
+Debug: 7 2 options.c:233 add_default_dirs(): bindir=/usr/local/bin
+Debug: 8 2 options.c:234 add_default_dirs(): pkgdatadir=/usr/local/share/openocd
+Debug: 9 2 options.c:235 add_default_dirs(): exepath=/usr/local/bin
+Debug: 10 2 options.c:236 add_default_dirs(): bin2data=../share/openocd
+Debug: 11 2 configuration.c:33 add_script_search_dir(): adding /home/abhi/.config/openocd
+Debug: 12 2 configuration.c:33 add_script_search_dir(): adding /home/abhi/.openocd
+Debug: 13 2 configuration.c:33 add_script_search_dir(): adding /usr/local/bin/../share/openocd/site
+Debug: 14 2 configuration.c:33 add_script_search_dir(): adding /usr/local/bin/../share/openocd/scripts
+Debug: 15 2 command.c:152 script_debug(): command - ocd_find RocketSim.cfg
+Debug: 16 2 configuration.c:88 find_file(): found RocketSim.cfg
+Debug: 17 2 command.c:152 script_debug(): command - adapter driver remote_bitbang
+Info : 18 2 transport.c:107 allow_transports(): only one transport option; autoselecting 'jtag'
+Debug: 19 2 command.c:152 script_debug(): command - remote_bitbang host localhost
+User : 20 2 command.c:613 command_run_line(): RocketSim.cfg:4: Error: can't read "::env(JTAG_VPI_PORT)": no such element in array
+in procedure 'script' 
+at file "embedded:startup.tcl", line 28
+at file "RocketSim.cfg", line 4
